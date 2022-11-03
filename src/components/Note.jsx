@@ -1,12 +1,17 @@
 import React from "react";
+import Notes from "../notes";
 
-function Note() {
+function Note(props) {
   return (
     <div className="note">
-      <h1>Title</h1>
-      <p>content everything u want to note down.</p>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
     </div>
   );
 }
 
-export default Note;
+const noteBlocks = Notes.map((note) => (
+  <Note key={note.key} title={note.title} content={note.content} />
+));
+
+export default noteBlocks;
